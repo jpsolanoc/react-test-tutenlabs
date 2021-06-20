@@ -18,9 +18,7 @@ const Datos = (props) => {
     const handleBusquedaBookingIdChange = (evento) => setBusquedaBookingId(evento.target.value);
 
     useEffect(() => {
-        if (email!== undefined && sessionTokenBck !== undefined) {
-            localStorage.setItem(email)
-            localStorage.setItem(sessionTokenBck)
+        if (email!== undefined && sessionTokenBck !== undefined) {            
             if (dataServer === undefined) {
                 const datos = {
                     user: 'contacto@tuten.cl'
@@ -83,18 +81,25 @@ const Datos = (props) => {
     return (
         <div>
 
-            <center><h2>Respuesta Servidor</h2></center>
+            <center><h2>Respuesta Servidor</h2>
             <label>
-                Busqueda por bookingId:
+                BookingId:&nbsp;&nbsp;&nbsp;&nbsp;
                 <input value={busquedaBookingId} onChange={handleBusquedaBookingIdChange}></input>
+                &nbsp;&nbsp;&nbsp;&nbsp;
                 <Button variant="outline-secondary" onClick={filtrarDatosBookingId}>Buscar</Button>
             </label>
+            <p>
             <label>
-                Busqueda por precio:
-                <input value={busqueda} onChange={handleBusquedaChange}></input>
+                Precio:&nbsp;&nbsp;&nbsp;&nbsp;
+                <input value={busqueda} onChange={handleBusquedaChange}></input>  
+                &nbsp;&nbsp;&nbsp;&nbsp;
                 <Button variant="outline-secondary" onClick={filtrarDatos}>Buscar</Button>
             </label>
+            </p>
+            <p>
             <Button variant="outline-secondary" onClick={mostrarTodos}>Mostrar Todos</Button>
+            </p>
+            </center>
             <Container>
                 <Row>
                     {mostrarInformacion}
